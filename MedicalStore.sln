@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStore.Core", "MedicalStore.Core\MedicalStore.Core.csproj", "{EA5325AD-F8B4-4820-9B45-35054D22A9BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE84E154-E810-4959-AE96-49BD036F7E46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{AA56934F-8CD1-4809-97F6-31266F6DBEF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9FDF9FE3-4C19-4BAE-9AFD-A67AC661B0E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStore.Data", "MedicalStore.Data\MedicalStore.Data.csproj", "{725F4421-480E-4E9B-BEB9-050D6AF6D5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStore.Services", "MedicalStore.Services\MedicalStore.Services.csproj", "{1F517117-A059-48F1-A96D-3AFC3131F2A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStore.Web", "MedicalStore.Web\MedicalStore.Web.csproj", "{B9587649-130D-4F9B-AC02-C87CA7B4A766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA5325AD-F8B4-4820-9B45-35054D22A9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5325AD-F8B4-4820-9B45-35054D22A9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5325AD-F8B4-4820-9B45-35054D22A9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5325AD-F8B4-4820-9B45-35054D22A9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725F4421-480E-4E9B-BEB9-050D6AF6D5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725F4421-480E-4E9B-BEB9-050D6AF6D5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725F4421-480E-4E9B-BEB9-050D6AF6D5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725F4421-480E-4E9B-BEB9-050D6AF6D5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F517117-A059-48F1-A96D-3AFC3131F2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F517117-A059-48F1-A96D-3AFC3131F2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F517117-A059-48F1-A96D-3AFC3131F2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F517117-A059-48F1-A96D-3AFC3131F2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9587649-130D-4F9B-AC02-C87CA7B4A766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9587649-130D-4F9B-AC02-C87CA7B4A766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9587649-130D-4F9B-AC02-C87CA7B4A766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9587649-130D-4F9B-AC02-C87CA7B4A766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA5325AD-F8B4-4820-9B45-35054D22A9BC} = {AA56934F-8CD1-4809-97F6-31266F6DBEF1}
+		{AA56934F-8CD1-4809-97F6-31266F6DBEF1} = {BE84E154-E810-4959-AE96-49BD036F7E46}
+		{9FDF9FE3-4C19-4BAE-9AFD-A67AC661B0E4} = {BE84E154-E810-4959-AE96-49BD036F7E46}
+		{725F4421-480E-4E9B-BEB9-050D6AF6D5BC} = {AA56934F-8CD1-4809-97F6-31266F6DBEF1}
+		{1F517117-A059-48F1-A96D-3AFC3131F2A0} = {AA56934F-8CD1-4809-97F6-31266F6DBEF1}
+		{B9587649-130D-4F9B-AC02-C87CA7B4A766} = {9FDF9FE3-4C19-4BAE-9AFD-A67AC661B0E4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6E8C360-3EE6-4D4F-B398-4B547F6BD8AF}
+	EndGlobalSection
+EndGlobal
