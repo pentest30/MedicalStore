@@ -1,4 +1,7 @@
-﻿namespace MedicalStore.Core.Domain.Region
+﻿using System.Collections.Generic;
+using MedicalStore.Core.Domain.Common;
+
+namespace MedicalStore.Core.Domain.Region
 {
     public partial class State:BaseEntity
     {
@@ -23,5 +26,7 @@
         /// The country.
         /// </value>
         public Country Country { get; set; }
+
+        public ICollection<Address> Addresses { get; set; }
     }
 }

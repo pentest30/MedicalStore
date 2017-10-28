@@ -1,4 +1,6 @@
-﻿namespace MedicalStore.Core.Domain.Accounting
+﻿using System.Collections.Generic;
+
+namespace MedicalStore.Core.Domain.Accounting
 {
     public partial class PayementMethod:BaseEntity
 
@@ -10,5 +12,7 @@
         /// The name.
         /// </value>
         public string Name { get; set; }
+
+        public ICollection<Payement> Payements { get; set; }
     }
 }

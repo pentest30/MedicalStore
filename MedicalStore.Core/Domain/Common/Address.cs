@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using MedicalStore.Core.Domain.Customers;
+using MedicalStore.Core.Domain.Orders;
 using MedicalStore.Core.Domain.Region;
+using MedicalStore.Core.Domain.Stores;
 
 namespace MedicalStore.Core.Domain.Common
 {
-    public partial class Address:BaseEntity
+    public partial class Address: BaseEntity
     {
 
         public string FirstName { get; set; }
@@ -78,6 +82,11 @@ namespace MedicalStore.Core.Domain.Common
         /// </summary>
         public virtual State StateProvince { get; set; }
 
-
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders1 { get; set; }
+        public ICollection<Store> Stores { get; set; }
+        public State State { get; set; }
+        public Customer Customer { get; set; }
+        public int? CustomerId { get; set; }
     }
 }

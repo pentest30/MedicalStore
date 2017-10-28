@@ -22,8 +22,8 @@ namespace MedicalStore.Core.Domain.Customers
        
         public virtual ICollection<Customer> Customers
         {
-            get => _customers ?? (_customers = new List<Customer>());
-            protected set => _customers = value;
+            get { return _customers ?? (_customers = new List<Customer>()); }
+            protected set { _customers = value; }
         }
     }
 }

@@ -1,0 +1,11 @@
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\bin\Debug\MedicalStore.Services.dll
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\bin\Debug\MedicalStore.Services.pdb
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.csprojResolveAssemblyReference.cache
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.csproj.CoreCompileInputs.cache
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.dll
+C:\Users\pen\Source\Repos\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.pdb
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Services\bin\Debug\MedicalStore.Services.dll
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Services\bin\Debug\MedicalStore.Services.pdb
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.csprojResolveAssemblyReference.cache
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.dll
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Services\obj\Debug\MedicalStore.Services.pdb

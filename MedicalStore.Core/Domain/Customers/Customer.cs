@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using MedicalStore.Core.Domain.Accounting;
 using MedicalStore.Core.Domain.Common;
 using MedicalStore.Core.Domain.Invoices;
@@ -8,7 +10,7 @@ using MedicalStore.Core.Domain.Stores;
 
 namespace MedicalStore.Core.Domain.Customers
 {
-    public class Customer
+    public class Customer: BaseEntity
     {
         /// <summary>
         /// The addresses
@@ -42,6 +44,7 @@ namespace MedicalStore.Core.Domain.Customers
         /// <value>
         /// The customer identifier.
         /// </value>
+        [Key]
         public Guid CustomerId { get; set; }
         /// <summary>
         /// Gets or sets the pseudo.
@@ -108,17 +111,25 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public CustomerStatus CustomerStatus { get; set; }
 
-
         /// <summary>
-        /// Gets or sets the addresses.
+        /// Gets or sets the entreprise identifier.
         /// </summary>
         /// <value>
-        /// The addresses.
+        /// The entreprise identifier.
         /// </value>
+        //[ForeignKey("Entreprise")]
+        //public int? EntrepriseId { get; set; }
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
+
         public virtual ICollection<Address> Addresses
         {
-            get => _addresses ?? (_addresses = new List<Address>());
-            protected set => _addresses = value;
+            get { return _addresses ?? (_addresses = new List<Address>()); }
+            protected set { _addresses = value; }
         }
 
         /// <summary>
@@ -129,8 +140,8 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public virtual ICollection<Role> Roles
         {
-            get => _roles ?? (_roles = new List<Role>());
-            protected set => _roles = value;
+            get { return _roles ?? (_roles = new List<Role>()); }
+            protected set { _roles = value; }
         }
 
         /// <summary>
@@ -141,8 +152,8 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public ICollection<Order> Orders
         {
-            get => _orders ?? (_orders = new List<Order>());
-            protected set => _orders = value;
+            get { return _orders ?? (_orders = new List<Order>()); }
+            protected set { _orders = value; }
         }
 
         /// <summary>
@@ -153,8 +164,8 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public ICollection<Invoice> Invoices
         {
-            get => _invoices ?? (_invoices = new List<Invoice>());
-            protected set => _invoices = value;
+            get { return _invoices ?? (_invoices = new List<Invoice>()); }
+            protected set { _invoices = value; }
         }
 
         /// <summary>
@@ -163,9 +174,10 @@ namespace MedicalStore.Core.Domain.Customers
         /// <value>
         /// The payements.
         /// </value>
-        public ICollection<Payement> Payements {
-            get => _payements ?? (_payements = new List<Payement>());
-            protected set => _payements = value;
+        public ICollection<Payement> Payements
+        {
+            get { return _payements ?? (_payements = new List<Payement>()); }
+            protected set { _payements = value; }
         }
 
         /// <summary>
@@ -174,10 +186,19 @@ namespace MedicalStore.Core.Domain.Customers
         /// <value>
         /// The stores.
         /// </value>
-        public ICollection<Store> Stores {
-            get => _stores ?? (_stores = new List<Store>());
-            protected set => _stores = value;
+        public ICollection<Store> Stores
+        {
+            get { return _stores ?? (_stores = new List<Store>()); }
+            protected set { _stores = value; }
         }
+
+        /// <summary>
+        /// Gets or sets the entreprise.
+        /// </summary>
+        /// <value>
+        /// The entreprise.
+        /// </value>
+        //public Entreprise Entreprise { get; set; }
 
     }
 }

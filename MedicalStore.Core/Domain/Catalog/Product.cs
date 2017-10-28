@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using MedicalStore.Core.Domain.Orders;
 
 namespace MedicalStore.Core.Domain.Catalog
 {
-    public partial class Product:BaseEntity
+    public partial class Product: BaseEntity
     {
         /// <summary>
         /// The product stocks
         /// </summary>
-        private ICollection<ProductStock> _productStocks;
+        private ICollection<Inventory> _inventories;
 
         /// <summary>
         /// Gets or sets the name.
@@ -104,11 +105,26 @@ namespace MedicalStore.Core.Domain.Catalog
         /// </summary>
        
       
-        public ICollection<ProductStock> ProductStocks
+        public ICollection<Inventory> Inventories
         {
-            get => _productStocks ?? (_productStocks = new List<ProductStock>());
-            protected set => _productStocks = value;
+            get { return _inventories ?? (_inventories = new List<Inventory>()); }
+            protected set { _inventories = value; }
         }
 
+
+        /// <summary>
+        /// Gets or sets the order items.
+        /// </summary>
+        /// <value>
+        /// The order items.
+        /// </value>
+        public ICollection<OrderItem> OrderItems { get; set; }
+        /// <summary>
+        /// Gets or sets the conditioning identifier.
+        /// </summary>
+        /// <value>
+        /// The conditioning identifier.
+        /// </value>
+        public int ConditioningId { get; set; }
     }
 }

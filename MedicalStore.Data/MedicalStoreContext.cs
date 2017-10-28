@@ -12,7 +12,7 @@ using MedicalStore.Core.Domain.Customers;
 
 namespace MedicalStore.Data
 {
-    public class MedicalStoreContext:DbContext,IDbContext
+    public class MedicalStoreContext: DbContext, IDbContext
     {
         public MedicalStoreContext()
         : base("test")
@@ -20,7 +20,7 @@ namespace MedicalStore.Data
             
         }
 
-      
+        // check this blog post :http://alexwolfthoughts.com/creating-a-generic-repository-with-entity-framework-and-mvc/
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //dynamically load all configuration

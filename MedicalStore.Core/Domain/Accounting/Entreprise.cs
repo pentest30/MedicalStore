@@ -1,18 +1,12 @@
 ﻿using System;
-using MedicalStore.Core.Domain.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 using MedicalStore.Core.Domain.Customers;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedicalStore.Core.Domain.Accounting
 {
-    public class Entreprise:BaseEntity
-
+    public class Entreprise: BaseEntity
     {
-        /// <summary>
-        /// Gets or sets the NRC.
-        /// </summary>
-        /// <value>
-        /// The NRC.
-        /// </value>
         public string Nrc { get; set; }
         /// <summary>
         /// Gets or sets the nif.
@@ -36,20 +30,6 @@ namespace MedicalStore.Core.Domain.Accounting
         /// The banck account.
         /// </value>
         public string BanckAccount { get; set; }
-        /// <summary>
-        /// Gets or sets the address.
-        /// </summary>
-        /// <value>
-        /// The address.
-        /// </value>
-        public Address Address { get; set; }
-        /// <summary>
-        /// Gets or sets the customer identifier.
-        /// </summary>
-        /// <value>
-        /// The customer identifier.
-        /// </value>
-        public Guid OwnerId { get; set; }
 
         /// <summary>
         /// Gets or sets the logo URI.
@@ -58,12 +38,23 @@ namespace MedicalStore.Core.Domain.Accounting
         /// The logo URI.
         /// </value>
         public string LogoUri { get; set; }
+
         /// <summary>
         /// Gets or sets the customer.
         /// </summary>
         /// <value>
         /// The customer.
         /// </value>
-        public Customer Owner { get; set; }
+        public Customer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the customer identifier.
+        /// </summary>
+        /// <value>
+        /// The customer identifier.
+        /// </value>
+        [ForeignKey("Customer")]
+        [Required]
+        public Guid CustomerId { get; set; }
     }
 }

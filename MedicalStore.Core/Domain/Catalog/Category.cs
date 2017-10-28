@@ -27,10 +27,8 @@ namespace MedicalStore.Core.Domain.Catalog
       
         public virtual ICollection<Product> Products
         {
-            get => _products ?? (_products = new List<Product>());
-            protected set => _products = value;
+            get { return _products ?? (_products = new List<Product>()); }
+            protected set { _products = value; }
         }
-
-
     }
 }

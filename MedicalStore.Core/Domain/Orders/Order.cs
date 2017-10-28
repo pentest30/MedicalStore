@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using MedicalStore.Core.Domain.Catalog;
 using MedicalStore.Core.Domain.Common;
 using MedicalStore.Core.Domain.Customers;
 using MedicalStore.Core.Domain.Shipping;
@@ -48,7 +47,7 @@ namespace MedicalStore.Core.Domain.Orders
         /// <value>
         /// The customer identifier.
         /// </value>
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the billing address identifier.
@@ -169,9 +168,10 @@ namespace MedicalStore.Core.Domain.Orders
         /// </value>
         public virtual ICollection<Shipment> Shipments
         {
-            get => _shipments ?? (_shipments = new List<Shipment>());
-            protected set => _shipments = value;
+            get { return _shipments ?? (_shipments = new List<Shipment>()); }
+            protected set { _shipments = value; }
         }
+
         /// <summary>
         /// Gets or sets the order items.
         /// </summary>
@@ -180,12 +180,16 @@ namespace MedicalStore.Core.Domain.Orders
         /// </value>
         public virtual ICollection<OrderItem> OrderItems
         {
-            get => _orderItems ?? (_orderItems = new List<OrderItem>());
-            protected set => _orderItems = value;
+            get { return _orderItems ?? (_orderItems = new List<OrderItem>()); }
+            protected set { _orderItems = value; }
         }
+
         /// <summary>
         /// Gets or sets the order total
         /// </summary>
         public decimal OrderTotal { get; set; }
+
+        public Address Address { get; set; }
+        public Address Address1 { get; set; }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MedicalStore.Core.Domain.Catalog
 {
     public class ProductionBatch:BaseEntity
     {
-        private ICollection<ProductStock> _productStocks;
+        private ICollection<Inventory> _productStocks;
 
        
 
@@ -15,12 +14,10 @@ namespace MedicalStore.Core.Domain.Catalog
         /// <value>
         /// The product stocks.
         /// </value>
-        public ICollection<ProductStock> ProductStocks
+        public ICollection<Inventory> ProductStocks
         {
-            get => _productStocks ?? (_productStocks = new List<ProductStock>());
-            protected set => _productStocks = value;
+            get { return _productStocks ?? (_productStocks = new List<Inventory>()); }
+            protected set { _productStocks = value; }
         }
-
-        
     }
 }

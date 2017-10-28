@@ -1,4 +1,7 @@
-﻿namespace MedicalStore.Core.Domain.Providers
+﻿using System.Collections.Generic;
+using MedicalStore.Core.Domain.Catalog;
+
+namespace MedicalStore.Core.Domain.Providers
 {
     public partial class Provider:BaseEntity
     {
@@ -26,5 +29,6 @@
         /// </summary>
         public string Description { get; set; }
 
+        public ICollection<Inventory> Inventories { get; set; }
     }
 }

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -58,7 +59,8 @@
     <Compile Include="Domain\Catalog\Product.cs" />
     <Compile Include="Domain\Catalog\ProductForm.cs" />
     <Compile Include="Domain\Catalog\ProductionBatch.cs" />
-    <Compile Include="Domain\Catalog\ProductStock.cs" />
+    <Compile Include="Domain\Catalog\ProductSetting.cs" />
+    <Compile Include="Domain\Catalog\Inventory.cs" />
     <Compile Include="Domain\Common\Address.cs" />
     <Compile Include="Domain\Customers\Customer.cs" />
     <Compile Include="Domain\Customers\CustomerIdentity.cs" />

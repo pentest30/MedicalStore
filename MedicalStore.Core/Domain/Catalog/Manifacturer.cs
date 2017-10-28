@@ -1,4 +1,5 @@
-﻿using MedicalStore.Core.Domain.Region;
+﻿using System.Collections.Generic;
+using MedicalStore.Core.Domain.Region;
 
 namespace MedicalStore.Core.Domain.Catalog
 {
@@ -25,5 +26,12 @@ namespace MedicalStore.Core.Domain.Catalog
 
         public Country Country { get; set; }
 
+        /// <summary>
+        /// Gets or sets the products.
+        /// </summary>
+        /// <value>
+        /// The products.
+        /// </value>
+       // public ICollection<Product> Products { get; set; }
     }
 }

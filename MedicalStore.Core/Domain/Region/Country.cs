@@ -1,4 +1,8 @@
-﻿namespace MedicalStore.Core.Domain.Region
+﻿using System.Collections.Generic;
+using MedicalStore.Core.Domain.Catalog;
+using MedicalStore.Core.Domain.Common;
+
+namespace MedicalStore.Core.Domain.Region
 {
     public partial class Country:BaseEntity
     {
@@ -16,5 +20,9 @@
         /// The alias.
         /// </value>
         public string Alias { get; set; }
+
+        public ICollection<Manifacturer> Manifacturers { get; set; }
+        public ICollection<State> States { get; set; }
+        public ICollection<Address> Addresses { get; set; }
     }
 }
