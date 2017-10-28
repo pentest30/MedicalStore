@@ -4,7 +4,7 @@ using MedicalStore.Core.Domain.Common;
 
 namespace MedicalStore.Core.Domain.Region
 {
-    public partial class Country:BaseEntity
+    public partial class Country: BaseEntity
     {
         /// <summary>
         /// Gets or sets the name.
@@ -21,8 +21,26 @@ namespace MedicalStore.Core.Domain.Region
         /// </value>
         public string Alias { get; set; }
 
+        /// <summary>
+        /// Gets or sets the manifacturers.
+        /// </summary>
+        /// <value>
+        /// The manifacturers.
+        /// </value>
         public ICollection<Manifacturer> Manifacturers { get; set; }
+        /// <summary>
+        /// Gets or sets the states.
+        /// </summary>
+        /// <value>
+        /// The states.
+        /// </value>
         public ICollection<State> States { get; set; }
+        /// <summary>
+        /// Gets or sets the addresses.
+        /// </summary>
+        /// <value>
+        /// The addresses.
+        /// </value>
         public ICollection<Address> Addresses { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using MedicalStore.Core.Domain.Common;
 
 namespace MedicalStore.Core.Domain.Region
 {
-    public partial class State:BaseEntity
+    public partial class State: BaseEntity
     {
         /// <summary>
         /// Gets or sets the country identifier.
@@ -27,6 +27,12 @@ namespace MedicalStore.Core.Domain.Region
         /// </value>
         public Country Country { get; set; }
 
+        /// <summary>
+        /// Gets or sets the addresses.
+        /// </summary>
+        /// <value>
+        /// The addresses.
+        /// </value>
         public ICollection<Address> Addresses { get; set; }
     }
 }
