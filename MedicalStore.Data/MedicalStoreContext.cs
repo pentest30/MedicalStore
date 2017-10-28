@@ -132,7 +132,7 @@ namespace MedicalStore.Data
             {
 
                 //var connection = context.Connection;
-                var connection = this.Database.Connection;
+                var connection = Database.Connection;
                 //Don't close the connection after command execution
 
 
@@ -174,7 +174,7 @@ namespace MedicalStore.Data
         /// <returns>Result</returns>
         public IEnumerable<TElement> SqlQuery<TElement>(string sql, params object[] parameters)
         {
-            return this.Database.SqlQuery<TElement>(sql, parameters);
+            return Database.SqlQuery<TElement>(sql, parameters);
         }
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace MedicalStore.Data
                 ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = timeout;
             }
 
-            var result = this.Database.ExecuteSqlCommand(sql, parameters);
+            var result = Database.ExecuteSqlCommand(sql, parameters);
 
             if (timeout.HasValue)
             {

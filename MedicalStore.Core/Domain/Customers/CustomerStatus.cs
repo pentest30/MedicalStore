@@ -2,7 +2,17 @@
 {
     public enum CustomerStatus
     {
+        /// <summary>
+        /// The activated
+        /// </summary>
         Activated,
-        Desactivated
+        /// <summary>
+        /// The desactivated
+        /// </summary>
+        Desactivated,
+        /// <summary>
+        /// The deleteted
+        /// </summary>
+        Deleteted
     }
 }

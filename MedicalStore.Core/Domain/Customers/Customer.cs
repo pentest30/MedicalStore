@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using MedicalStore.Core.Domain.Accounting;
 using MedicalStore.Core.Domain.Common;
 using MedicalStore.Core.Domain.Invoices;

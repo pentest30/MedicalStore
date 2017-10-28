@@ -34,6 +34,12 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public Customer Customer { get; set; }
 
-
+        /// <summary>
+        /// Gets or sets the businnes register.
+        /// </summary>
+        /// <value>
+        /// The businnes register.
+        /// </value>
+        public string BusinnesRegister { get; set; }
     }
 }

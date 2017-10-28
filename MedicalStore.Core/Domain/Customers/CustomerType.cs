@@ -12,6 +12,6 @@ namespace MedicalStore.Core.Domain.Customers
         /// </value>
         public string Name { get; set; }
 
-        public ICollection<Customer> Customers { get; set; }
+       // public ICollection<Customer> Customers { get; set; }
     }
 }
