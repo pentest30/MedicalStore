@@ -128,40 +128,34 @@ namespace MedicalStore.Data
                 //    Set<TEntity>().Attach(entity);
                 //return result;
             }
-            else
+            //var connection = context.Connection;
+            var connection = Database.Connection;
+            //Don't close the connection after command execution
+
+
+            //open the connection for use
+            if (connection.State == ConnectionState.Closed)
+                connection.Open();
+            //create a command object
+            using (var cmd = connection.CreateCommand())
             {
+                //command to execute
+                cmd.CommandText = commandText;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                //var connection = context.Connection;
-                var connection = Database.Connection;
-                //Don't close the connection after command execution
+                // move parameters to command object
+                foreach (var p in parameters)
+                    cmd.Parameters.Add(p);
 
-
-                //open the connection for use
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
-                //create a command object
-                using (var cmd = connection.CreateCommand())
-                {
-                    //command to execute
-                    cmd.CommandText = commandText;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // move parameters to command object
-                    if (parameters != null)
-                        foreach (var p in parameters)
-                            cmd.Parameters.Add(p);
-
-                    //database call
-                    var reader = cmd.ExecuteReader();
-                    //return reader.DataReaderToObjectList<TEntity>();
-                    var result = context.Translate<TEntity>(reader).ToList();
-                    for (int i = 0; i < result.Count; i++)
-                        result[i] = AttachEntityToContext(result[i]);
-                    //close up the reader, we're done saving results
-                    reader.Close();
-                    return result;
-                }
-
+                //database call
+                var reader = cmd.ExecuteReader();
+                //return reader.DataReaderToObjectList<TEntity>();
+                var result = context.Translate<TEntity>(reader).ToList();
+                for (int i = 0; i < result.Count; i++)
+                    result[i] = AttachEntityToContext(result[i]);
+                //close up the reader, we're done saving results
+                reader.Close();
+                return result;
             }
         }
 

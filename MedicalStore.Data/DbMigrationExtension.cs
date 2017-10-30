@@ -8,7 +8,12 @@ namespace MedicalStore.Data
 {
     public class DbMigrationExtension :IDbMigrationExtension
     {
-        public  void InitializeDatabase(MedicalStoreContext context)
+        /// <summary>
+        /// Initializes the database.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <exception cref="ArgumentNullException">migrations</exception>
+        public void InitializeDatabase(MedicalStoreContext context)
         {
             if (!context.Database.Exists() || !context.Database.CompatibleWithModel(false))
             {
