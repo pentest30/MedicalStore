@@ -9,6 +9,12 @@ namespace MedicalStore.Services.Authentication
     public class AuthenticationService:IAuthenticationService
     {
 
+        /// <summary>
+        /// Gets the authentication manager.
+        /// </summary>
+        /// <value>
+        /// The authentication manager.
+        /// </value>
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -37,7 +43,7 @@ namespace MedicalStore.Services.Authentication
 
         public void SignOut()
         {
-            throw new System.NotImplementedException();
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
         public Customer GetAuthenticatedCustomer()
