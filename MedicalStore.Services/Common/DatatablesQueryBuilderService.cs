@@ -11,6 +11,13 @@ namespace MedicalStore.Services.Common
 {
     public class DatatablesQueryBuilderService: IDatatablesQrBuilderService,IExpressionBuilder
     {
+        /// <summary>
+        /// Buils the query.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="request">The request.</param>
+        /// <param name="queryable">The queryable.</param>
+        /// <returns></returns>
         public DatatablesQueryResult<T> BuildQuery<T>(HttpRequestBase request, IQueryable<T> queryable)
         {
             var dtParams = ParseRequest(request);
@@ -21,7 +28,7 @@ namespace MedicalStore.Services.Common
             bool searchHasValue = !string.IsNullOrEmpty(dtParams.Search.Value);
             bool clHasValue = false;
 
-            #region the search part
+            #region the where clause part
 
             foreach (var p in dtParams.Columns)
             {
@@ -40,7 +47,7 @@ namespace MedicalStore.Services.Common
 
             #endregion
 
-            #region the order part
+            #region the order clause part
 
             foreach (var p in dtParams.Orders)
             {
@@ -66,7 +73,7 @@ namespace MedicalStore.Services.Common
                     case "System.Nullable<DateTime>":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Nullable<DateTime>>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Nullable<DateTime>>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<DateTime>>(c.Data));
                         }
                         break;
@@ -80,49 +87,64 @@ namespace MedicalStore.Services.Common
                     case "System.Nullable<Int32>":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(keySelector: OrderByExpression<T, System.Nullable<Int32>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, System.Nullable<Int32>>(c.Data));
+                                ? queryable.OrderBy(keySelector: OrderByExpression<T, Nullable<Int32>>(c.Data))
+                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<Int32>>(c.Data));
                         }
                         break;
+                    case "System.Int64":
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Int64>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Int64>(c.Data));
+                    }
+                        break;
+                    case "System.Nullable<Int64>":
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(keySelector: OrderByExpression<T, Nullable<Int64>>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<Int64>>(c.Data));
+                    }
+                        break;
+
                     case "System.Decimal":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Decimal>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Decimal>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal>(c.Data));
                         }
                         break;
                     case "System.Nullable<Decimal>":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Nullable<Decimal>>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Decimal>>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal?>(c.Data));
                         }
                         break;
                     case "System.Double":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Double>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Double>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double>(c.Data));
                         }
                         break;
                     case "System.Nullable<Double>":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Nullable<Double>>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Double>>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double?>(c.Data));
                         }
                         break;
                     case "System.Nullable<Guid>":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Nullable<Guid>>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Guid>>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid?>(c.Data));
                         }
                         break;
                     case "System.Guid":
                         {
                             queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, System.Guid>(c.Data))
+                                ? queryable.OrderBy(OrderByExpression<T, Guid>(c.Data))
                                 : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid>(c.Data));
                         }
                         break;
@@ -137,6 +159,13 @@ namespace MedicalStore.Services.Common
             return result;
         }
 
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p">The p.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="searchValue">The search value.</param>
         private void GetValue<T>(DatatablesColumn p, ExpressionStarter<T> predicate, string searchValue)
         {
            // PropertyInfo pi = typeof(T).GetProperty(p.Data);
@@ -144,6 +173,11 @@ namespace MedicalStore.Services.Common
             predicate.Or(exp);
         }
 
+        /// <summary>
+        /// Parses the request.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
         private static DatatablesModel ParseRequest(HttpRequestBase request)
         {
             var form = request.QueryString;
