@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=10.2.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.10.2.1\lib\net\JetBrains.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -43,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Linq\IExpressionBuilder.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Domain\Accounting\Bank.cs" />
     <Compile Include="Domain\Accounting\BankAgency.cs" />
@@ -61,6 +65,7 @@
     <Compile Include="Domain\Catalog\ProductionBatch.cs" />
     <Compile Include="Domain\Catalog\ProductSetting.cs" />
     <Compile Include="Domain\Catalog\Inventory.cs" />
+    <Compile Include="Domain\Catalog\Promotion.cs" />
     <Compile Include="Domain\Common\Address.cs" />
     <Compile Include="Domain\Customers\Customer.cs" />
     <Compile Include="Domain\Customers\CustomerIdentity.cs" />
@@ -95,6 +100,8 @@
     <Compile Include="IO\IStorageFolder.cs" />
     <Compile Include="IO\IStorageProvider.cs" />
     <Compile Include="IWebHelper.cs" />
+    <Compile Include="Linq\LinqKit\ExpressionStarter.cs" />
+    <Compile Include="Linq\LinqKit\PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

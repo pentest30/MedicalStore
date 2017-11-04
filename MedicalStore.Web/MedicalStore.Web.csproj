@@ -312,6 +312,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalStore.Core\MedicalStore.Core.csproj">
+      <Project>{ea5325ad-f8b4-4820-9b45-35054d22a9bc}</Project>
+      <Name>MedicalStore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalStore.Data\MedicalStore.Data.csproj">
+      <Project>{725f4421-480e-4e9b-beb9-050d6af6d5bc}</Project>
+      <Name>MedicalStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalStore.Services\MedicalStore.Services.csproj">
+      <Project>{1f517117-a059-48f1-a96d-3afc3131f2a0}</Project>
+      <Name>MedicalStore.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

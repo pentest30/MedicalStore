@@ -1,12 +1,33 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using MedicalStore.Core.Domain.Customers;
-using System.ComponentModel.DataAnnotations;
 
 namespace MedicalStore.Core.Domain.Accounting
 {
     public class Entreprise: BaseEntity
     {
+        /// <summary>
+        /// Gets or sets the rib.
+        /// </summary>
+        /// <value>
+        /// The rib.
+        /// </value>
+        public string Rib { get; set; }
+
+        /// <summary>
+        /// Gets or sets the accounting number.
+        /// </summary>
+        /// <value>
+        /// The accounting number.
+        /// </value>
+        public string AccountingNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the NRC.
+        /// </summary>
+        /// <value>
+        /// The NRC.
+        /// </value>
         public string Nrc { get; set; }
         /// <summary>
         /// Gets or sets the nif.
@@ -40,6 +61,14 @@ namespace MedicalStore.Core.Domain.Accounting
         public string LogoUri { get; set; }
 
         /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or sets the customer.
         /// </summary>
         /// <value>
@@ -54,7 +83,6 @@ namespace MedicalStore.Core.Domain.Accounting
         /// The customer identifier.
         /// </value>
         [ForeignKey("Customer")]
-        [Required]
         public Guid CustomerId { get; set; }
     }
 }

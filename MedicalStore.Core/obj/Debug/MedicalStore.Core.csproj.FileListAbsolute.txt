@@ -11,3 +11,10 @@ C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Core\obj\Debug
 C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Core\obj\Debug\MedicalStore.Core.dll
 C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Core\obj\Debug\MedicalStore.Core.pdb
 C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\MedicalStore.Core\obj\Debug\MedicalStore.Core.csproj.CoreCompileInputs.cache
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\bin\Debug\MedicalStore.Core.dll.config
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\bin\Debug\MedicalStore.Core.dll
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\bin\Debug\MedicalStore.Core.pdb
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\obj\Debug\MedicalStore.Core.csprojResolveAssemblyReference.cache
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\obj\Debug\MedicalStore.Core.csproj.CoreCompileInputs.cache
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\obj\Debug\MedicalStore.Core.dll
+C:\Users\pc\Source\Workspaces\Workspace\MedicalStore\src\MedicalStore.Core\obj\Debug\MedicalStore.Core.pdb

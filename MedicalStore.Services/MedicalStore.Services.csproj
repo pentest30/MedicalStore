@@ -70,6 +70,9 @@
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationService.cs" />
     <Compile Include="Authentication\IAuthenticationService.cs" />
+    <Compile Include="Common\DatatablesQueryBuilderService.cs" />
+    <Compile Include="Common\DatatablesQueryResult.cs" />
+    <Compile Include="Common\IDatatablesQrBuilderService.cs" />
     <Compile Include="Customers\CustomerService.cs" />
     <Compile Include="Customers\ICustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

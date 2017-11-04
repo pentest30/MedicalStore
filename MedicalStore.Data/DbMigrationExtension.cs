@@ -3,6 +3,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Migrations.Infrastructure;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace MedicalStore.Data
 {
@@ -18,6 +19,7 @@ namespace MedicalStore.Data
             if (!context.Database.Exists() || !context.Database.CompatibleWithModel(false))
             {
                 var configuration = new DbMigrationsConfiguration();
+                
                 var migrator = new DbMigrator(configuration);
                 migrator.Configuration.TargetDatabase = new DbConnectionInfo(context.Database.Connection.ConnectionString, "System.Data.SqlClient");
                 var migrations = migrator.GetPendingMigrations();
