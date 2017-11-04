@@ -54,42 +54,45 @@ namespace MedicalStore.Services.Common
                 var c = dtParams.Columns[p.Column];
                 if (!c.Orderable) continue;
                 PropertyInfo pi = typeof(T).GetProperty(c.Data);
+                if (pi == null) continue;
                 switch (pi.PropertyType.FullName)
                 {
                     case "System.String":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, string>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, string>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, string>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, string>(c.Data));
+                    }
                         break;
                     case "System.DateTime":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, DateTime>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, DateTime>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, DateTime>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, DateTime>(c.Data));
+                    }
                         break;
                     case "System.Nullable<DateTime>":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Nullable<DateTime>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<DateTime>>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Nullable<DateTime>>(c.Data))
+                            : queryable.AsQueryable()
+                                .OrderByDescending(OrderByExpression<T, Nullable<DateTime>>(c.Data));
+                    }
                         break;
                     case "System.Int32":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Int32>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Int32>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Int32>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Int32>(c.Data));
+                    }
                         break;
                     case "System.Nullable<Int32>":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(keySelector: OrderByExpression<T, Nullable<Int32>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<Int32>>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(keySelector: OrderByExpression<T, Nullable<Int32>>(c.Data))
+                            : queryable.AsQueryable()
+                                .OrderByDescending(OrderByExpression<T, Nullable<Int32>>(c.Data));
+                    }
                         break;
                     case "System.Int64":
                     {
@@ -102,51 +105,52 @@ namespace MedicalStore.Services.Common
                     {
                         queryable = p.Dir == "asc"
                             ? queryable.OrderBy(keySelector: OrderByExpression<T, Nullable<Int64>>(c.Data))
-                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Nullable<Int64>>(c.Data));
+                            : queryable.AsQueryable()
+                                .OrderByDescending(OrderByExpression<T, Nullable<Int64>>(c.Data));
                     }
                         break;
 
                     case "System.Decimal":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Decimal>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Decimal>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal>(c.Data));
+                    }
                         break;
                     case "System.Nullable<Decimal>":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Decimal>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal?>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Nullable<Decimal>>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Decimal?>(c.Data));
+                    }
                         break;
                     case "System.Double":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Double>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Double>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double>(c.Data));
+                    }
                         break;
                     case "System.Nullable<Double>":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Double>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double?>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Nullable<Double>>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Double?>(c.Data));
+                    }
                         break;
                     case "System.Nullable<Guid>":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Nullable<Guid>>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid?>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Nullable<Guid>>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid?>(c.Data));
+                    }
                         break;
                     case "System.Guid":
-                        {
-                            queryable = p.Dir == "asc"
-                                ? queryable.OrderBy(OrderByExpression<T, Guid>(c.Data))
-                                : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid>(c.Data));
-                        }
+                    {
+                        queryable = p.Dir == "asc"
+                            ? queryable.OrderBy(OrderByExpression<T, Guid>(c.Data))
+                            : queryable.AsQueryable().OrderByDescending(OrderByExpression<T, Guid>(c.Data));
+                    }
                         break;
                 }
             }
@@ -185,7 +189,7 @@ namespace MedicalStore.Services.Common
             var draw = int.Parse(form["draw"]);
             var start = int.Parse(form["start"]);
             var length = int.Parse(form["length"]);
-            var search = new DatatablesSearch()
+            var search = new DatatablesSearch
             {
                 Value = form["search[value]"],
                 Regx = Convert.ToBoolean(form["search[regex]"])
@@ -219,7 +223,7 @@ namespace MedicalStore.Services.Common
                 });
                 c++;
             }
-            var result = new DatatablesModel()
+            var result = new DatatablesModel
             {
                 Draw = draw,
                 Start = start,
@@ -230,6 +234,14 @@ namespace MedicalStore.Services.Common
             };
             return result;
         }
+        /// <summary>
+        /// Determines whether the specified term contains expression.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="term">The term.</param>
+        /// <param name="property">The property.</param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public Expression<Func<T, bool>> ContainsExpression<T>(string term, string property)
         {
 
@@ -244,11 +256,28 @@ namespace MedicalStore.Services.Common
             return lambda;
         }
 
+        /// <summary>
+        /// Operationses the expression.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="term">The term.</param>
+        /// <param name="property">The property.</param>
+        /// <param name="operation">The operation.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public Expression<Func<T, bool>> OperationsExpression<T>(string term, string property, ExpressionType operation)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Orders  by expression.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="TTargetKey">The type of the target key.</typeparam>
+        /// <param name="property">The property.</param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public Expression<Func<TSource, TTargetKey>> OrderByExpression<TSource, TTargetKey>(string property)
         { 
             PropertyInfo pi = typeof(TSource).GetProperty(property);
